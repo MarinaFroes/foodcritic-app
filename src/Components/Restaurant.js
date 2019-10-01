@@ -4,8 +4,9 @@ import styled from 'styled-components';
 const RestaurantInfo = styled.li`
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
-  margin: 1rem;
+  background-color: #f2f2f2;
+  margin: 0.5rem 1rem;
+  padding: 1rem;
 `;
 
 const Name = styled.h3`
@@ -16,13 +17,13 @@ const Info = styled.p`
   font-size: 0.8rem;
 `;
 
-export default function Restaurant({ name, category, location, evaluation }) {
+export default function Restaurant({ name, category, location, rate }) {
   return (
     <RestaurantInfo>
       <Name>{name}</Name>
-      <Info>{category}</Info>
-      <Info>{location}</Info>
-      <Info>{evaluation}</Info>
+      <Info>Category: {category}</Info>
+      <Info>Location: {location}</Info>
+      <Info>Rating: {rate}</Info>
     </RestaurantInfo>
   )
 }
