@@ -29,7 +29,7 @@ export default function RestaurantList() {
           ))
         }
       </List>
-      <Fab color="primary" aria-label="add">
+      <Fab size="medium" color="primary" aria-label="add">
         <AddIcon />
       </Fab>
     </React.Fragment>
