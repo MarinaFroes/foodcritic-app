@@ -9,7 +9,7 @@ const FooterContainer = styled.footer`
   text-align: center;
   width: 100%;
   color: #000;
-  padding-bottom: 2rem;
+  padding: 2rem;
 `;
 
 const IconContainer = styled.div`
