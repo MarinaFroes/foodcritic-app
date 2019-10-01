@@ -3,27 +3,7 @@ import Restaurant from './Restaurant';
 import styled from 'styled-components';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-
-const RESTAURANT_INFO = [
-  {
-    name: "Restaurant 1",
-    category: "Category 1",
-    location: "Location 1",
-    rate: 10
-  },
-  {
-    name: "Restaurant 2",
-    category: "Category 2",
-    location: "Location 2",
-    rate: 9
-  },
-  {
-    name: "Restaurant 3",
-    category: "Category 3",
-    location: "Location 3",
-    rate: 5
-  }
-]
+import { RESTAURANT_INFO } from './restaurantsInfo';
 
 const List = styled.ul`
   display: flex;
