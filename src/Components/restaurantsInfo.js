@@ -1,20 +1,20 @@
 export const RESTAURANT_INFO = [
   {
-    name: "Restaurant 1",
+    name: "Ishin",
     category: "Category 1",
-    location: "Location 1",
-    rate: 10
+    location: "Wilmersdorf",
+    rate: 3
   },
   {
-    name: "Restaurant 2",
+    name: "Monsieur Vuong",
     category: "Category 2",
-    location: "Location 2",
-    rate: 9
+    location: "Mitte",
+    rate: 4
   },
   {
-    name: "Restaurant 3",
+    name: "Shanius",
     category: "Category 3",
-    location: "Location 3",
-    rate: 5
+    location: "Wilmersdorf",
+    rate: 4
   }
 ]
