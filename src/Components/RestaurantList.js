@@ -18,6 +18,13 @@ const Title = styled.h2`
   font-size: 1.5rem;
 `;
 
+const ButtonContainer = styled.div`
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  color: #fff;
+`;
+
 export default function RestaurantList() {
   return (
     <React.Fragment>
@@ -34,9 +41,11 @@ export default function RestaurantList() {
           ))
         }
       </List>
-      <Fab size="medium" color="primary" aria-label="add">
-        <AddIcon />
-      </Fab>
+      <ButtonContainer>
+        <Fab size="medium" aria-label="add">
+          <AddIcon />
+        </Fab>
+      </ButtonContainer>
     </React.Fragment>
   )
 }
