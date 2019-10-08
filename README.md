@@ -1,4 +1,4 @@
-# Avalio App
+# FoodCritic App
 
 ## Introduction
 [ IN PROGRESS ]
