@@ -11,17 +11,18 @@ const HeaderContainer = styled.header`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 100%;
   height: 5rem;
-  padding: 0 1rem;
 `;
 
 const Heading = styled.h1`
   font-size: 2rem;
   color: #fff;
-  margin-left: 1rem;
+  margin-left: 0.8rem;
+  font-weight: normal;
 `;
 
 const Logo = styled.img`
-  height: 2rem;
+  height: 2.5rem;
+  margin-left: 1.1rem;
 `;
 
 export default function Header( { title }) {
