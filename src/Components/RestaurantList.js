@@ -12,19 +12,24 @@ const List = styled.ul`
   justify-content: center;
 `;
 
+const Title = styled.h2`
+  margin: 1.5rem;
+  text-align: left;
+  font-size: 1.5rem;
+`;
+
 export default function RestaurantList() {
   return (
     <React.Fragment>
-      <h2>Stored establishments</h2>
+      <Title>List of Restaurants</Title>
       <List>
         {
           RESTAURANT_INFO.map(info => (
               <Restaurant
-                name={info.name}
-                key={info.name}
-                category={info.category}
-                location={info.location}
-                rate={info.rate}
+              name={info.name}
+              location={info.location}
+              rate={info.rate}
+              key={info.name}
               />
           ))
         }
