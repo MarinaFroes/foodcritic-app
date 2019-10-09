@@ -11,6 +11,7 @@ const MainPage = styled.main`
   background: url(${BgImg});
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 `;
 
 const LinkContainer = styled.div`
