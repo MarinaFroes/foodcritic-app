@@ -1,8 +1,7 @@
 import React from 'react';
 import Restaurant from './Restaurant';
 import styled from 'styled-components';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import AddButton from './AddButton';
 import { RESTAURANT_INFO } from './restaurantsInfo';
 
 const List = styled.ul`
@@ -42,9 +41,7 @@ export default function RestaurantList() {
         }
       </List>
       <ButtonContainer>
-        <Fab size="medium" aria-label="add">
-          <AddIcon />
-        </Fab>
+        <AddButton />
       </ButtonContainer>
     </React.Fragment>
   )
