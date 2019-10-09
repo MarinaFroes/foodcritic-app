@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import StarRating from './StarRating';
 
 const RestaurantInfo = styled.li`
   display: flex;
@@ -23,7 +24,8 @@ export default function Restaurant({ name, category, location, rate }) {
   return (
     <RestaurantInfo>
       <Name>{name} - {location}</Name>
-      <p>Rate: {rate}</p>
+      {/* <p>Rate: {rate}</p> */}
+      <StarRating rating={rate}/>
       {/* <Info>Category: {category}</Info>
       <Info>Location: {location}</Info>
       <Info>Rating: {rate}</Info> */}
