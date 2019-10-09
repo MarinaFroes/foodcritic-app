@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import logo from "./images/logo.svg";
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import logo from './images/logo.svg';
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -28,7 +28,7 @@ const Logo = styled.img`
 export default function Header( { title }) {
   return (
     <HeaderContainer id="header">
-      <Logo src={logo} alt=""/>
+      <Link to="/"><Logo src={logo} alt="" /></Link>
       <Heading>{title}</Heading>
     </HeaderContainer>
   )
