@@ -2,6 +2,7 @@ import React from 'react';
 import Restaurant from './Restaurant';
 import styled from 'styled-components';
 import AddButton from './AddButton';
+import Section from './Section';
 import { RESTAURANT_INFO } from './restaurantsInfo';
 
 const List = styled.ul`
@@ -9,12 +10,6 @@ const List = styled.ul`
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-`;
-
-const Title = styled.h2`
-  margin: 1.5rem;
-  text-align: left;
-  font-size: 1.5rem;
 `;
 
 const ButtonContainer = styled.div`
@@ -26,8 +21,7 @@ const ButtonContainer = styled.div`
 
 export default function RestaurantList() {
   return (
-    <React.Fragment>
-      <Title>List of Restaurants</Title>
+    <Section heading="List of Restaurants">
       <List>
         {
           RESTAURANT_INFO.map(info => (
@@ -43,6 +37,6 @@ export default function RestaurantList() {
       <ButtonContainer>
         <AddButton />
       </ButtonContainer>
-    </React.Fragment>
+    </Section>
   )
 }
