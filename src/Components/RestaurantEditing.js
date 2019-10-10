@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Section from './Section';
 
@@ -48,16 +48,29 @@ const Submit = styled.input`
 `;
 
 export default function RestaurantEditing() {
+
+  const [name, setName] = useState(null);
+  const [location, setLocation] = useState(null);
+  const [category, setCategory] = useState(null);
+  const [rating, setRating] = useState(null);
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    setName(event.target.name.value);
+    setLocation(event.target.location.value);
+    setCategory(event.target.category.value);
+    setRating(event.target.rating.value);
+  }
+  // TODO: Add POST request 
   return (
     <Section heading="Restaurant Info">
-      <Form>
+      <Form onSubmit={handleSubmit}>
 
         <Label htmlFor="name">Name</Label> 
         <InputText
           type="text"
           id="name"
           name="name"
-          placeholder="Leaky Cauldron"
           required
         />
 
@@ -66,7 +79,6 @@ export default function RestaurantEditing() {
           type="text"
           id="location"
           name="location"
-          placeholder="Diagon Alley"
           required
         />
         
@@ -93,6 +105,10 @@ export default function RestaurantEditing() {
 
         <Submit type="submit" value="Save"/>
       </Form>
+      <p>{name}</p>
+      <p>{location}</p>
+      <p>{category}</p>
+      <p>{rating}</p>
     </Section>
   )
 }
