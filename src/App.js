@@ -5,6 +5,7 @@ import './App.css';
 import Home from './Components/Home';
 import Header from '../src/Components/Header';
 import RestaurantList from '../src/Components/RestaurantList';
+import RestaurantEditing from '../src/Components/RestaurantEditing';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <BrowserRouter>
         <Header title="FoodCritic" />
         <Route exact path="/" component={Home} />
-        <Route exact path="/restaurant_list" component={RestaurantList } />
+        <Route exact path="/restaurant_list" component={RestaurantList} />
+        <Route exact path="/restaurant_editing" component={RestaurantEditing} />
         {/* <Footer /> */}
       </BrowserRouter>
     </div>
