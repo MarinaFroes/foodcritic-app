@@ -5,7 +5,7 @@ import StarRating from './StarRating';
 const RestaurantInfo = styled.li`
   display: flex;
   flex-direction: column;
-  background-color: #f2f2f2;
+  background-color: #caccd3;
   margin: 0.5rem 0;
   padding: 1rem;
   height: 6rem;

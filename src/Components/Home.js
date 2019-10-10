@@ -18,7 +18,7 @@ const LinkContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #c4c4c4;
+  background-color: #caccd3;
   width: 200px;
   height: 40px;
   margin-bottom: 80px;

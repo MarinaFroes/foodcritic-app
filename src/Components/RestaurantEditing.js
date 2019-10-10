@@ -14,6 +14,8 @@ const InputText = styled.input`
   height: 1.8rem;
   background-color: #caccd3;
   margin-bottom: 2rem;
+  border: none;
+  padding-left: 0.5rem;
 `;
 
 const Label = styled.label`
@@ -29,6 +31,7 @@ const Select = styled.select`
   max-width: 20rem;
   background-color: #caccd3;
   margin-bottom: 2rem;
+  border: none;
   border-radius: 0;
 `;
 
@@ -48,7 +51,7 @@ export default function RestaurantEditing() {
   return (
     <Section heading="Restaurant Info">
       <Form>
-        
+
         <Label htmlFor="name">Name</Label> 
         <InputText
           type="text"
@@ -69,7 +72,7 @@ export default function RestaurantEditing() {
         
         <Label htmlFor="category">Category</Label>
         <Select id="category" name="category" required>
-          <option value="">--choose an option--</option>
+          <option value="">--choose a category--</option>
           <option value="restaurant">Restaurant</option>
           <option value="bar">Bar</option>
           <option value="cafe">Cafe</option>

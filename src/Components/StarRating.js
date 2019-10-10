@@ -9,7 +9,7 @@ export default function StarRating({rating}) {
         rating={rating}
         starDimension="20px"
         starRatedColor="#000"
-        starEmptyColor="silver"
+        starEmptyColor="#fff"
         starSpacing="10px"
       />
     </div>
