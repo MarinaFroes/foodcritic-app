@@ -7,7 +7,7 @@ const MainPage = styled.main`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 90vh;
+  height: 88%;
   background: url(${BgImg});
   background-repeat: no-repeat;
   background-size: cover;
