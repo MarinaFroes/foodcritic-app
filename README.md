@@ -1,5 +1,5 @@
 # FoodCritic App
-![Screen](./src/components/images/screens.png)
+![Screen](./src/Components/images/screens.png)
 
 ## Introduction
 [ IN PROGRESS ]
