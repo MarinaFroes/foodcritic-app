@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import BgImg from './images/joseph-gonzalez-unsplash.jpg';
+import BgImg from '../assets/joseph-gonzalez-unsplash.jpg';
 
 const MainPage = styled.main`
   display: flex;
