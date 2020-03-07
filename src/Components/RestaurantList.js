@@ -1,9 +1,10 @@
 import React from 'react';
-import Restaurant from './Restaurant';
+// import Restaurant from './Restaurant';
 import styled from 'styled-components';
 import AddButton from './AddButton';
 import Section from './Section';
-import { RESTAURANT_INFO } from './restaurantsInfo';
+// import { RESTAURANT_INFO } from './restaurantsInfo';
+import { getRestaurants } from '../utils/api'
 
 const List = styled.ul`
   display: flex;
@@ -19,24 +20,56 @@ const ButtonContainer = styled.div`
   color: #fff;
 `;
 
-export default function RestaurantList() {
-  return (
-    <Section heading="List of Restaurants">
-      <List>
-        {
-          RESTAURANT_INFO.map(info => (
-              <Restaurant
-              name={info.name}
-              location={info.location}
-              rate={info.rate}
-              key={info.name}
-              />
-          ))
+class RestaurantList extends React.Component {
+  state = {
+    isLoaded: false,
+    error: null,
+    users: []
+  }
+
+  componentDidMount() {
+    fetch(getRestaurants())
+      .then(res => res.json())
+      .then((result) => {
+          this.setState({
+            isLoaded: true,
+            restaurants: result
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
         }
-      </List>
-      <ButtonContainer>
-        <AddButton />
-      </ButtonContainer>
-    </Section>
-  )
+      )
+  }
+
+  render() {
+    const { restaurants } = this.state
+    const { error } = this.state
+    return (
+      <Section heading="List of Restaurants">
+        <List>
+          {/* {
+            RESTAURANT_INFO.map(info => (
+              <Restaurant
+                name={info.name}
+                location={info.location}
+                rate={info.rate}
+                key={info.name}
+              />
+            ))
+          } */}
+
+        </List>
+        <ButtonContainer>
+          <AddButton />
+        </ButtonContainer>
+      </Section>
+    )
+  }
 }
+
+export default RestaurantList
+
