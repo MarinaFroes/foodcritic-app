@@ -37,7 +37,7 @@ const Select = styled.select`
 
 const Submit = styled.input`
   align-self: center;
-  font-family: Poppins;
+  font-family: Arial;
   background-color: #e9b839;
   color: #fff;
   width: 7rem;
