@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Section from './Section';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { Redirect } from 'react-router-dom'
+import Section from './Section'
 import { saveRestaurant } from '../utils/api'
 
 const Form = styled.form`
@@ -55,7 +56,8 @@ class AddRestaurant extends Component {
     location: "",
     category: "",
     rating: "",
-    cuisine: ""
+    cuisine: "",
+    toList: false
   }
   // const [name, setName] = useState(null);
   // const [location, setLocation] = useState(null);
@@ -81,14 +83,26 @@ class AddRestaurant extends Component {
     // setCuisine(event.target.cuisine.value);
     const { name, location, category, cuisine, rating } = this.state
     const author = "marinacosta"
-
+    
     saveRestaurant({ name, location, category, cuisine, rating, author })
-    console.log('restaurant saved')
 
-
+    this.setState({
+      name: "",
+      location: "",
+      category: "",
+      rating: "",
+      cuisine: "",
+      toList: true
+    })
   }
   
   render() {
+    const { toList } = this.state
+
+    if (toList === true) {
+      return <Redirect to="/restaurant_list" />
+    }
+
     return (
       <Section heading="Restaurant Info">
         <Form onSubmit={this.handleSubmit}>
