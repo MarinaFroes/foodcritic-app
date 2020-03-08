@@ -25,7 +25,7 @@ class RestaurantList extends React.Component {
     isLoaded: false,
     error: null,
     users: [],
-    restaurants: []
+    restaurants: null
   }
 
   componentDidMount() {
@@ -49,9 +49,9 @@ class RestaurantList extends React.Component {
   render() {
     const { restaurants } = this.state
     return (
-      <Section heading="List of Restaurants">
+      <Section heading={restaurants === null ? "Loading..." : "List of Restaurants"}>
         <List>
-          {restaurants &&
+          {restaurants !== null &&
             restaurants.map((restaurant, index) => (
               <RestaurantPreview
                 key={index}
