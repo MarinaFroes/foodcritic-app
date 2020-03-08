@@ -6,7 +6,7 @@ import Login from './Components/Login'
 import Home from './Components/Home'
 import Header from '../src/Components/Header'
 import RestaurantList from '../src/Components/RestaurantList'
-import RestaurantEditing from '../src/Components/RestaurantEditing'
+import AddRestaurant from '../src/Components/AddRestaurant'
 import RestaurantPage from '../src/Components/RestaurantPage'
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/" component={Home} />
         <Route exact path="/restaurant_list" component={RestaurantList} />
-        <Route exact path="/restaurant_editing" component={RestaurantEditing} />
+        <Route exact path="/add_restaurant" component={AddRestaurant} />
         <Route path="/restaurant/:rid" component={RestaurantPage} />
         {/* <Footer /> */}
       </Router>

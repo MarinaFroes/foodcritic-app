@@ -48,7 +48,7 @@ const Submit = styled.input`
   border-radius: 5px;
 `;
 
-class RestaurantEditing extends Component {
+class AddRestaurant extends Component {
 
   state = {
     name: "",
@@ -70,8 +70,6 @@ class RestaurantEditing extends Component {
     this.setState({
       [name]: value
     });
-
-    console.log(this.state[name])
   }
   
   handleSubmit = event => {
@@ -86,6 +84,8 @@ class RestaurantEditing extends Component {
 
     saveRestaurant({ name, location, category, cuisine, rating, author })
     console.log('restaurant saved')
+
+
   }
   
   render() {
@@ -149,4 +149,4 @@ class RestaurantEditing extends Component {
   
 }
 
-export default RestaurantEditing
+export default AddRestaurant
