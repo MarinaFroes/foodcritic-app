@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+// import styled from 'styled-components'
 import { getRestaurants } from '../utils/api'
 import RestaurantDetails from './RestaurantDetails'
+import Section from './Section'
 
 class RestaurantPage extends Component {
   state = {
@@ -19,21 +21,20 @@ class RestaurantPage extends Component {
   render() {
     const { rid } = this.props.match.params
     const { restaurants } = this.state
-
+    const restaurant = restaurants !== null ? restaurants.filter(restaurant => restaurant.rid === rid) : null
+    
     return (
-      <div>
-        <p>{rid}</p>
-        {
-          restaurants !== null && (
-            restaurants.map(restaurant => (restaurant.rid === rid && <RestaurantDetails
-              name={restaurant.name}
-              location={restaurant.location}
-              rid={restaurant.rid}
-              category={restaurant.category}
-            />))
-          )
+      <Section heading={restaurant !== null ? restaurant[0].name : "Loading..."}>
+        { restaurant !== null 
+          && (<RestaurantDetails
+                name={restaurant[0].name}
+                location={restaurant[0].location}
+                rid={restaurant[0].rid}
+                category={restaurant[0].category}
+                cuisine={restaurant[0].cuisine}
+              />)
         }
-      </div>
+      </Section>
     )
   }
 }
