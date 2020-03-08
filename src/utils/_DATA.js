@@ -82,9 +82,9 @@ export function _getUsers () {
   })
 }
 
-function formatRestaurant ({ name, category, cuisine, location, author, rating }) {
+function formatRestaurant({ name, category, cuisine, location, author, rating }, rid ) {
   return {
-    rid: generateID(),
+    rid,
     name,
     author,
     category,
@@ -99,23 +99,24 @@ function formatRestaurant ({ name, category, cuisine, location, author, rating }
 
 export function _saveRestaurant (restaurant) {
   return new Promise((res, rej) => {
-    // const authedUser = restaurant.author;
-    const formattedRestaurant = formatRestaurant(restaurant);
-
+    const rid = generateID()
+    const formattedRestaurant = formatRestaurant(restaurant, rid)
+    
     setTimeout(() => {
       restaurants = [
         ...restaurants,
         formattedRestaurant
       ]
-      console.log(restaurants)
-      // users = {
-      //   ...users,
-      //   {
-      //     ...users[authedUser],
-      //     ratings: users[authedUser].ratings[formattedRestaurant.rid],
-      //     restaurants: users[authedUser].restaurants.concat([formattedRestaurant.rid])
-      //   }
-      // }
+      
+      users = users.map((user) => {
+        if (user.uid === formattedRestaurant.author) {
+          user.ratings[rid] = Number(restaurant.rating)
+          user.restaurants.push(rid)
+          return user
+        } else {
+          return user
+        }
+      })
 
       res(formattedRestaurant)
     }, 1000)
