@@ -1,5 +1,5 @@
 import React from 'react';
-import Restaurant from './Restaurant';
+import RestaurantPreview from './RestaurantPreview';
 import styled from 'styled-components';
 import AddButton from './AddButton';
 import Section from './Section';
@@ -53,7 +53,7 @@ class RestaurantList extends React.Component {
         <List>
           {restaurants &&
             restaurants.map((restaurant, index) => (
-              <Restaurant
+              <RestaurantPreview
                 key={index}
                 rid={restaurant.rid}
                 name={restaurant.name}
