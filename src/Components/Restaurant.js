@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import StarRating from './StarRating';
+import React from 'react'
+import styled from 'styled-components'
+import StarRating from './StarRating'
 
 const RestaurantInfo = styled.li`
   display: flex;
@@ -20,15 +20,19 @@ const Name = styled.h3`
 //   font-size: 0.8rem;
 // `;
 
-export default function Restaurant({ name, category, location, rate }) {
-  return (
-    <RestaurantInfo>
-      <Name>{name} - {location}</Name>
-      {/* <p>Rate: {rate}</p> */}
-      <StarRating rating={rate}/>
-      {/* <Info>Category: {category}</Info>
-      <Info>Location: {location}</Info>
-      <Info>Rating: {rate}</Info> */}
-    </RestaurantInfo>
-  )
+function Restaurant({ name, location, ratings }) {
+    const ratingsArray = Object.values(ratings)
+    const totalOfRatings = Object.keys(ratings).length
+    const sumOfRatings = ratingsArray.reduce((accumulator, currentValue) => accumulator + currentValue)
+    const avarageRating = sumOfRatings / totalOfRatings
+
+    return (
+      <RestaurantInfo>
+        <Name>{name} - {location}</Name>
+        {/* <Info>{category}</Info> */}
+        <StarRating rating={avarageRating} />
+      </RestaurantInfo>
+    )
 }
+
+export default Restaurant
