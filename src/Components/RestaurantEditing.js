@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Section from './Section';
+import { saveRestaurant } from '../utils/api'
 
 const Form = styled.form`
   display: flex;
@@ -47,68 +48,105 @@ const Submit = styled.input`
   border-radius: 5px;
 `;
 
-export default function RestaurantEditing() {
+class RestaurantEditing extends Component {
 
-  const [name, setName] = useState(null);
-  const [location, setLocation] = useState(null);
-  const [category, setCategory] = useState(null);
-  const [rating, setRating] = useState(null);
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    setName(event.target.name.value);
-    setLocation(event.target.location.value);
-    setCategory(event.target.category.value);
-    setRating(event.target.rating.value);
+  state = {
+    name: "",
+    location: "",
+    category: "",
+    rating: "",
+    cuisine: ""
   }
-  // TODO: Add POST request 
-  return (
-    <Section heading="Restaurant Info">
-      <Form onSubmit={handleSubmit}>
+  // const [name, setName] = useState(null);
+  // const [location, setLocation] = useState(null);
+  // const [category, setCategory] = useState(null);
+  // const [rating, setRating] = useState(null);
+  // const [cuisine, setCuisine] = useState(null);
+  handleChange = event => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-        <Label htmlFor="name">Name</Label> 
-        <InputText
-          type="text"
-          id="name"
-          name="name"
-          required
-        />
+    this.setState({
+      [name]: value
+    });
 
-        <Label htmlFor="location">Location</Label>
-        <InputText
-          type="text"
-          id="location"
-          name="location"
-          required
-        />
-        
-        <Label htmlFor="category">Category</Label>
-        <Select id="category" name="category" required>
-          <option value="">--choose a category--</option>
-          <option value="restaurant">Restaurant</option>
-          <option value="bar">Bar</option>
-          <option value="cafe">Cafe</option>
-          <option value="kiosk">Kiosk</option>
-          <option value="snack bar">Snack bar</option>
-          <option value="other">Other</option>
-        </Select>
-        
-        <Label htmlFor="rating">Rating</Label>
-        <Select id="rating" name="rating" required>
-          <option value="">--choose a rating--</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </Select>
+    console.log(this.state[name])
+  }
+  
+  handleSubmit = event => {
+    event.preventDefault();
+    // setName(event.target.name.value);
+    // setLocation(event.target.location.value);
+    // setCategory(event.target.category.value);
+    // setRating(event.target.rating.value);
+    // setCuisine(event.target.cuisine.value);
+    const { name, location, category, cuisine, rating } = this.state
+    const author = "marinacosta"
 
-        <Submit type="submit" value="Save"/>
-      </Form>
-      <p>{name}</p>
-      <p>{location}</p>
-      <p>{category}</p>
-      <p>{rating}</p>
-    </Section>
-  )
+    saveRestaurant({ name, location, category, cuisine, rating, author })
+    console.log('restaurant saved')
+  }
+  
+  render() {
+    return (
+      <Section heading="Restaurant Info">
+        <Form onSubmit={this.handleSubmit}>
+
+          <Label htmlFor="name">Name</Label>
+          <InputText
+            type="text"
+            id="name"
+            name="name"
+            required
+            onChange={this.handleChange}
+          />
+
+          <Label htmlFor="location">Location</Label>
+          <InputText
+            type="text"
+            id="location"
+            name="location"
+            required
+            onChange={this.handleChange}
+          />
+
+          <Label htmlFor="category">Category</Label>
+          <Select id="category" name="category" onChange={this.handleChange} required>
+            <option value="">--choose a category--</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="bar">Bar</option>
+            <option value="cafe">Cafe</option>
+            <option value="kiosk">Kiosk</option>
+            <option value="snack bar">Snack bar</option>
+            <option value="other">Other</option>
+          </Select>
+
+          <Label htmlFor="cuisine">Cuisine</Label>
+          <InputText
+            type="text"
+            id="cuisine"
+            name="cuisine"
+            required
+            onChange={this.handleChange}
+          />
+
+          <Label htmlFor="rating">Rating</Label>
+          <Select id="rating" name="rating" onChange={this.handleChange} required>
+            <option value="">--choose a rating--</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </Select>
+
+          <Submit type="submit" value="Save" />
+        </Form>
+      </Section>
+    )
+  }
+  
 }
+
+export default RestaurantEditing
