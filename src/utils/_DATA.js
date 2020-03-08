@@ -1,9 +1,9 @@
-let restaurants = {
-  "am8ehyc8byjqgar0jgpub9": {
+let restaurants = [
+  {
     rid: "am8ehyc8byjqgar0jgpub9",
     name: "Ishin",
     author: "sarahedo",
-    category: "Category 1",
+    category: "Japanese",
     location: "Wilmersdorf",
     ratings: {
       "sarahedo": 4,
@@ -11,11 +11,11 @@ let restaurants = {
     },
     raters: ["sarahedo", "marinacosta"]
   },
-  "6ni6ok3ym7mf1p33lnez": {
+  {
     rid: "6ni6ok3ym7mf1p33lnez",
     name: "Monsieur Vuong",
     author: "sarahedo",
-    category: "Category 2",
+    category: "Vietnamese",
     location: "Mitte",
     ratings: {
       "sarahedo": 3,
@@ -23,11 +23,11 @@ let restaurants = {
     },
     raters: ["sarahedo", "marinacosta"]
   },
-  "8xf0y6ziyjabvozdd253nd": {
+  {
     rid: "8xf0y6ziyjabvozdd253nd",
     name: "Shanius",
     author: "sarahedo",
-    category: "Category 3",
+    category: "Chinese",
     location: "Wilmersdorf",
     ratings: {
       "sarahedo": 5,
@@ -35,10 +35,10 @@ let restaurants = {
     },
     raters: ["sarahedo", "marinacosta"]
   }
-}
+]
 
-let users = {
-  "sarahedo": {
+let users = [
+  {
     uid: "sarahedo",
     name: "Sarah Edo",
     avatarURL: "https://picsum.photos/id/1027/200/200",
@@ -49,7 +49,7 @@ let users = {
     },
     restaurants: ["am8ehyc8byjqgar0jgpub9", "6ni6ok3ym7mf1p33lnez", "8xf0y6ziyjabvozdd253nd"]
   },
-  "marinacosta": {
+  {
     uid: "marinacosta",
     name: "Marina Costa",
     avatarURL: "https://picsum.photos/id/1027/200/200",
@@ -60,7 +60,7 @@ let users = {
     },
     restaurants: ["am8ehyc8byjqgar0jgpub9", "6ni6ok3ym7mf1p33lnez", "8xf0y6ziyjabvozdd253nd"]
   }
-}
+]
 
 
 function generateID () {
@@ -69,13 +69,13 @@ function generateID () {
 
 export function _getRestaurants () {
   return new Promise((res, rej) => {
-    setTimeout(() => res({...restaurants}), 1000)
+    setTimeout(() => res([...restaurants]), 1000)
   })
 }
 
 export function _getUsers () {
   return new Promise((res, rej) => {
-    setTimeout(() => res({...users}), 1000)
+    setTimeout(() => res([...users]), 1000)
   })
 }
 
@@ -101,17 +101,17 @@ export function _saveRestaurant (restaurant) {
     setTimeout(() => {
       restaurants = {
         ...restaurant,
-        [formattedRestaurant.rid]: formattedRestaurant
+        formattedRestaurant
       }
       
-      users = {
-        ...users,
-        [authedUser]: {
-          ...users[authedUser],
-          ratings: users[authedUser].ratings[formattedRestaurant.rid],
-          restaurants: users[authedUser].restaurants.concat([formattedRestaurant.rid])
-        }
-      }
+      // users = {
+      //   ...users,
+      //   {
+      //     ...users[authedUser],
+      //     ratings: users[authedUser].ratings[formattedRestaurant.rid],
+      //     restaurants: users[authedUser].restaurants.concat([formattedRestaurant.rid])
+      //   }
+      // }
 
       res(formattedRestaurant)
     }, 1000)
@@ -121,23 +121,23 @@ export function _saveRestaurant (restaurant) {
 export function _saveRating({ authedUser, rid, rating }) {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      users = {
-        ...users,
-        [authedUser]: {
-          ...users[authedUser],
-          ratings: users[authedUser].ratings[rid] = rating,
-          restaurants: users[authedUser].restaurants.concat([rid])
-        }
-      }
+      // users = {
+      //   ...users,
+      //   [authedUser]: {
+      //     ...users[authedUser],
+      //     ratings: users[authedUser].ratings[rid] = rating,
+      //     restaurants: users[authedUser].restaurants.concat([rid])
+      //   }
+      // }
 
-      restaurants = {
-        ...restaurants,
-        [rid]: {
-          ...restaurants[rid],
-          ratings: restaurants[rid].ratings[authedUser] = rating,
-          raters: restaurants[rid].raters.concat([authedUser])
-        }
-      }
+      // restaurants = {
+      //   ...restaurants,
+      //   [rid]: {
+      //     ...restaurants[rid],
+      //     ratings: restaurants[rid].ratings[authedUser] = rating,
+      //     raters: restaurants[rid].raters.concat([authedUser])
+      //   }
+      // }
 
       res()
     }, 500)
