@@ -30,13 +30,13 @@ function RestaurantPreview({ name, location, ratings, rid }) {
     const ratingsArray = Object.values(ratings)
     const totalOfRatings = Object.keys(ratings).length
     const sumOfRatings = ratingsArray.reduce((accumulator, currentValue) => accumulator + currentValue)
-    const avarageRating = sumOfRatings / totalOfRatings
+    const averageRating = sumOfRatings / totalOfRatings
 
     return (
       <RestaurantInfo to={`/restaurant/${rid}`}>
         <Name>{name} - {location}</Name>
         {/* <Info>{category}</Info> */}
-        <StarRating rating={avarageRating} />
+        <StarRating rating={averageRating} />
       </RestaurantInfo>
     )
 }
