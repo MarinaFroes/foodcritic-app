@@ -8,7 +8,7 @@ export default function StarRating({rating}) {
         numberOfStars={5}
         rating={rating}
         starDimension="20px"
-        starRatedColor="#000"
+        starRatedColor="#8C46BD"
         starEmptyColor="#fff"
         starSpacing="10px"
       />
