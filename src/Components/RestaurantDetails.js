@@ -20,11 +20,11 @@ const StyledInfo = styled.p`
 function RestaurantDetails({ name, location, rid, category, cuisine }) {
   return (
     <RestaurantContainer>
-      <StyledTitle>{name}</StyledTitle>
-      <StyledInfo>Location: {location}</StyledInfo>
-      <StyledInfo>rid: {rid}</StyledInfo>
-      <StyledInfo>Category: {category}</StyledInfo>
-      <StyledInfo>Cuisine: {cuisine}</StyledInfo>
+      <StyledTitle>Restaurant Info</StyledTitle>
+      {/* <StyledInfo>rid: {rid}</StyledInfo> */}
+      <StyledInfo><strong>Location:</strong> {location}</StyledInfo>
+      <StyledInfo><strong>Category:</strong> {category}</StyledInfo>
+      <StyledInfo><strong>Cuisine:</strong> {cuisine}</StyledInfo>
     </RestaurantContainer>
   )
 }
