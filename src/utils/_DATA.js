@@ -3,7 +3,8 @@ let restaurants = [
     rid: "am8ehyc8byjqgar0jgpub9",
     name: "Ishin",
     author: "sarahedo",
-    category: "Japanese",
+    category: "restaurant",
+    cuisine: "japanese",
     location: "Wilmersdorf",
     ratings: {
       "sarahedo": 4,
@@ -15,7 +16,8 @@ let restaurants = [
     rid: "6ni6ok3ym7mf1p33lnez",
     name: "Monsieur Vuong",
     author: "sarahedo",
-    category: "Vietnamese",
+    category: "restaurant",
+    cuisine: "vietnamese",
     location: "Mitte",
     ratings: {
       "sarahedo": 3,
@@ -27,7 +29,8 @@ let restaurants = [
     rid: "8xf0y6ziyjabvozdd253nd",
     name: "Shanius",
     author: "sarahedo",
-    category: "Chinese",
+    category: "restaurant",
+    cuisine: "chinese",
     location: "Wilmersdorf",
     ratings: {
       "sarahedo": 5,
@@ -79,31 +82,32 @@ export function _getUsers () {
   })
 }
 
-function formatRestaurant ({ name, category, location, author, rating }) {
+function formatRestaurant ({ name, category, cuisine, location, author, rating }) {
   return {
     rid: generateID(),
     name,
     author,
     category,
+    cuisine,
     location,
     ratings: {
-      [author.uid]: rating
+      [author]: rating
     },
-    raters: [author.uid]
+    raters: [author]
   }
 }
 
 export function _saveRestaurant (restaurant) {
   return new Promise((res, rej) => {
-    const authedUser = restaurant.author;
+    // const authedUser = restaurant.author;
     const formattedRestaurant = formatRestaurant(restaurant);
 
     setTimeout(() => {
-      restaurants = {
-        ...restaurant,
+      restaurants = [
+        ...restaurants,
         formattedRestaurant
-      }
-      
+      ]
+      console.log(restaurants)
       // users = {
       //   ...users,
       //   {
