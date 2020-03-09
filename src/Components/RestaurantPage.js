@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { getRestaurants } from '../utils/api'
 import RestaurantDetails from './RestaurantDetails'
 import Section from './Section'
+import EditIcon from './EditIcon'
 
 class RestaurantPage extends Component {
   state = {
@@ -26,14 +27,19 @@ class RestaurantPage extends Component {
     return (
       <Section heading={restaurant !== null ? restaurant[0].name : "Loading..."}>
         { restaurant !== null 
-          && (<RestaurantDetails
-                name={restaurant[0].name}
-                location={restaurant[0].location}
-                rid={restaurant[0].rid}
-                category={restaurant[0].category}
-                cuisine={restaurant[0].cuisine}
-              />)
+          && (<>
+              <RestaurantDetails
+                  name={restaurant[0].name}
+                  location={restaurant[0].location}
+                  rid={restaurant[0].rid}
+                  category={restaurant[0].category}
+                  cuisine={restaurant[0].cuisine}
+              />
+              <EditIcon rid={rid} />
+            </>
+            )
         }
+        
       </Section>
     )
   }
