@@ -8,6 +8,7 @@ import Header from '../src/Components/Header'
 import RestaurantList from '../src/Components/RestaurantList'
 import AddRestaurant from '../src/Components/AddRestaurant'
 import RestaurantPage from '../src/Components/RestaurantPage'
+import EditRestaurant from '../src/Components/EditRestaurant'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/restaurant_list" component={RestaurantList} />
         <Route exact path="/add_restaurant" component={AddRestaurant} />
         <Route path="/restaurant/:rid" component={RestaurantPage} />
+        <Route path="/edit_restaurant/:rid" component={EditRestaurant} />
         {/* <Footer /> */}
       </Router>
     </div>
