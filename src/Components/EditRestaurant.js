@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { getRestaurants, editRestaurant } from '../utils/api'
 import Section from './Section'
+import { Redirect } from 'react-router-dom'
+import RestaurantForm from './RestaurantForm'
 
 class EditRestaurant extends Component {
   state = {
@@ -52,12 +54,23 @@ class EditRestaurant extends Component {
       const { rid } = this.props.match.params
       const { restaurants } = this.state
       const restaurant = restaurants !== null ? restaurants.filter(restaurant => restaurant.rid === rid) : null
+      const { toList } = this.state
+
+      if (toList === true) {
+        return <Redirect to="/restaurant_list" />
+      }
 
       return (
-        <Section heading={restaurant !== null ? restaurant[0].name : "Loading..."}>
+        <Section heading={restaurant !== null ? `Edit ${restaurant[0].name} info` : "Loading..."}>
           {restaurant !== null
             && (
-              <p>{rid}</p>
+            <>
+              <RestaurantForm
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+                restaurant={restaurant}
+              />
+            </>
             )
           }
 
