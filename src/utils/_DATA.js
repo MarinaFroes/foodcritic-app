@@ -177,3 +177,11 @@ export function _saveRating({ authedUser, rid, rating }) {
 //     }, 500)
 //   })
 // }
+
+export function _editRestaurant(restaurant) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+       console.log('editing restaurant')
+    }, 1000)
+  })
+}

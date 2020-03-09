@@ -2,7 +2,8 @@ import {
   _getUsers,
   _getRestaurants,
   _saveRestaurant,
-  _saveRating
+  _saveRating,
+  _editRestaurant
 } from './_DATA'
 
 export function getInitialData() {
@@ -20,6 +21,10 @@ export function saveRestaurant(info) {
 
 export function saveRating(info) {
   return _saveRating(info)
+}
+
+export function editRestaurant(info) {
+  return _editRestaurant(info)
 }
 
 export function getUsers() {
