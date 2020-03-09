@@ -1,53 +1,55 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 import { Redirect } from 'react-router-dom'
+
 import Section from './Section'
+import RestaurantForm from './RestaurantForm'
 import { saveRestaurant } from '../utils/api'
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  margin: 2rem;
-`;
+// const Form = styled.form`
+//   display: flex;
+//   flex-direction: column;
+//   margin: 2rem;
+// `;
 
-const InputText = styled.input`
-  font-size: 1rem;
-  width: 18rem;
-  height: 1.8rem;
-  background-color: #caccd3;
-  margin-bottom: 2rem;
-  border: none;
-  padding-left: 0.5rem;
-`;
+// const InputText = styled.input`
+//   font-size: 1rem;
+//   width: 18rem;
+//   height: 1.8rem;
+//   background-color: #caccd3;
+//   margin-bottom: 2rem;
+//   border: none;
+//   padding-left: 0.5rem;
+// `;
 
-const Label = styled.label`
-  font-size: 1rem;
-  color: #949599;
-  display: flex;
-`;
+// const Label = styled.label`
+//   font-size: 1rem;
+//   color: #949599;
+//   display: flex;
+// `;
 
-const Select = styled.select`
-  font-size: 1rem;
-  width: 18rem;
-  height: 1.8rem;
-  max-width: 20rem;
-  background-color: #caccd3;
-  margin-bottom: 2rem;
-  border: none;
-  border-radius: 0;
-`;
+// const Select = styled.select`
+//   font-size: 1rem;
+//   width: 18rem;
+//   height: 1.8rem;
+//   max-width: 20rem;
+//   background-color: #caccd3;
+//   margin-bottom: 2rem;
+//   border: none;
+//   border-radius: 0;
+// `;
 
-const Submit = styled.input`
-  align-self: center;
-  font-family: Arial;
-  background-color: #e9b839;
-  color: #fff;
-  width: 7rem;
-  height: 2rem;
-  font-size: 1rem;
-  padding: auto;
-  border-radius: 5px;
-`;
+// const Submit = styled.input`
+//   align-self: center;
+//   font-family: Arial;
+//   background-color: #e9b839;
+//   color: #fff;
+//   width: 7rem;
+//   height: 2rem;
+//   font-size: 1rem;
+//   padding: auto;
+//   border-radius: 5px;
+// `;
 
 class AddRestaurant extends Component {
 
@@ -72,6 +74,8 @@ class AddRestaurant extends Component {
     this.setState({
       [name]: value
     });
+
+    console.log(this.state[name])
   }
   
   handleSubmit = event => {
@@ -105,7 +109,12 @@ class AddRestaurant extends Component {
 
     return (
       <Section heading="Restaurant Info">
-        <Form onSubmit={this.handleSubmit}>
+        <RestaurantForm
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          restaurant={null}
+        />
+        {/* <Form onSubmit={this.handleSubmit}>
 
           <Label htmlFor="name">Name</Label>
           <InputText
@@ -156,7 +165,7 @@ class AddRestaurant extends Component {
           </Select>
 
           <Submit type="submit" value="Save" />
-        </Form>
+        </Form> */}
       </Section>
     )
   }
