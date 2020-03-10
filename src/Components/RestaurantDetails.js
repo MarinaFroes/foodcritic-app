@@ -18,13 +18,14 @@ const StyledInfo = styled.p`
   padding: 0.5rem;
 `
 
-function RestaurantDetails({ location, category, cuisine }) {
+function RestaurantDetails({ location, category, cuisine, rating }) {
   return (
     <RestaurantContainer>
       <StyledTitle>Restaurant Info</StyledTitle>
       <StyledInfo><strong>Location:</strong> {location}</StyledInfo>
       <StyledInfo><strong>Category:</strong> {category}</StyledInfo>
       <StyledInfo><strong>Cuisine:</strong> {cuisine}</StyledInfo>
+      <StyledInfo><strong>Rating:</strong> {rating}</StyledInfo>
     </RestaurantContainer>
   )
 }
@@ -35,4 +36,8 @@ RestaurantDetails.propTypes = {
   location: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   cuisine: PropTypes.string.isRequired,
+  rating: PropTypes.oneOfType([
+    PropTypes.number.isRequired,
+    PropTypes.string.isRequired
+  ])
 }

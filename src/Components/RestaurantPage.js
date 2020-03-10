@@ -32,12 +32,12 @@ class RestaurantPage extends Component {
                   location={restaurant[0].location}
                   category={restaurant[0].category}
                   cuisine={restaurant[0].cuisine}
+                  rating={restaurant[0].rating}
               />
               <EditIcon rid={rid} />
             </>
             )
         }
-        
       </Section>
     )
   }
