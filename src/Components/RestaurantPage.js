@@ -29,9 +29,7 @@ class RestaurantPage extends Component {
         { restaurant !== null 
           && (<>
               <RestaurantDetails
-                  name={restaurant[0].name}
                   location={restaurant[0].location}
-                  rid={restaurant[0].rid}
                   category={restaurant[0].category}
                   cuisine={restaurant[0].cuisine}
               />
