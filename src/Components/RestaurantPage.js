@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import styled from 'styled-components'
 import { getRestaurants } from '../utils/api'
 import RestaurantDetails from './RestaurantDetails'
 import Section from './Section'
