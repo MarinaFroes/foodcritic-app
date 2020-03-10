@@ -1,9 +1,9 @@
-import React from 'react';
-import RestaurantPreview from './RestaurantPreview';
-import styled from 'styled-components';
-import AddButton from './AddButton';
-import Section from './Section';
-// import { RESTAURANT_INFO } from './restaurantsInfo';
+import React from 'react'
+import styled from 'styled-components'
+
+import AddButton from './AddButton'
+import Section from './Section'
+import RestaurantPreview from './RestaurantPreview'
 import { getInitialData } from '../utils/api'
 
 const List = styled.ul`
