@@ -38,6 +38,9 @@ export default RestaurantPreview
 RestaurantPreview.propTypes = {
   name: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.oneOfType([
+    PropTypes.number.isRequired,
+    PropTypes.string.isRequired
+  ]),
   rid: PropTypes.string.isRequired,
 }
