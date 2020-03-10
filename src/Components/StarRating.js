@@ -1,5 +1,6 @@
-import React from 'react';
-import StarRatings from 'react-star-ratings';
+import React from 'react'
+import StarRatings from 'react-star-ratings'
+import PropTypes from 'prop-types'
 
 export default function StarRating({rating}) {
   return (
@@ -14,4 +15,8 @@ export default function StarRating({rating}) {
       />
     </div>
   )
+}
+
+StarRating.propTypes = { 
+  rating: PropTypes.number.isRequired
 }
