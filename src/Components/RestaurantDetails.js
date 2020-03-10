@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const RestaurantContainer = styled.div`
   display: flex;
@@ -17,11 +18,10 @@ const StyledInfo = styled.p`
   padding: 0.5rem;
 `
 
-function RestaurantDetails({ name, location, rid, category, cuisine }) {
+function RestaurantDetails({ location, category, cuisine }) {
   return (
     <RestaurantContainer>
       <StyledTitle>Restaurant Info</StyledTitle>
-      {/* <StyledInfo>rid: {rid}</StyledInfo> */}
       <StyledInfo><strong>Location:</strong> {location}</StyledInfo>
       <StyledInfo><strong>Category:</strong> {category}</StyledInfo>
       <StyledInfo><strong>Cuisine:</strong> {cuisine}</StyledInfo>
@@ -30,3 +30,9 @@ function RestaurantDetails({ name, location, rid, category, cuisine }) {
 }
 
 export default RestaurantDetails
+
+RestaurantDetails.propTypes = {
+  location: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  cuisine: PropTypes.string.isRequired,
+}
