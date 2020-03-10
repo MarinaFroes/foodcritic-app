@@ -7,7 +7,7 @@ export default function StarRating({rating}) {
     <div>
       <StarRatings
         numberOfStars={5}
-        rating={rating}
+        rating={typeof rating === "number" ? rating : Number(rating)}
         starDimension="20px"
         starRatedColor="#8C46BD"
         starEmptyColor="#fff"
@@ -18,5 +18,8 @@ export default function StarRating({rating}) {
 }
 
 StarRating.propTypes = { 
-  rating: PropTypes.number.isRequired
+  rating: PropTypes.oneOfType([
+    PropTypes.number.isRequired,
+    PropTypes.string.isRequired
+  ])
 }
