@@ -1,7 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import Author from './Author';
-import { AUTHOR_INFO } from './authorsInfo';
+import React from 'react'
+import styled from 'styled-components'
+
+import Author from './Author'
+import { AUTHOR_INFO } from './authorsInfo'
 
 const FooterContainer = styled.footer`
   display: flex;
