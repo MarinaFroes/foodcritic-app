@@ -23,7 +23,7 @@ class EditRestaurant extends Component {
     event.preventDefault();
     
     const { rid } = this.props.match.params
-    editRestaurant(newRestaurant, rid)
+    editRestaurant({ newRestaurant, rid })
 
     this.setState({
       toList: true
