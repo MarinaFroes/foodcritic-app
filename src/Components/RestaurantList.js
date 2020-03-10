@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import AddButton from './AddButton'
 import Section from './Section'
 import RestaurantPreview from './RestaurantPreview'
-import { getInitialData } from '../utils/api'
+import { getRestaurants } from '../utils/api'
 
 const List = styled.ul`
   display: flex;
@@ -29,12 +29,11 @@ class RestaurantList extends React.Component {
   }
 
   componentDidMount() {
-    getInitialData()
-      .then(({ users, restaurants }) => {
+    getRestaurants()
+      .then(restaurants => {
           this.setState({
             isLoaded: true,
-            users: users,
-            restaurants: restaurants
+            restaurants
           });
         },
         (error) => {
@@ -58,7 +57,7 @@ class RestaurantList extends React.Component {
                 rid={restaurant.rid}
                 name={restaurant.name}
                 location={restaurant.location}
-                ratings={restaurant.ratings}
+                rating={restaurant.rating}
               />
             ))
           }
