@@ -8,39 +8,17 @@ import { saveRestaurant } from '../utils/api'
 class AddRestaurant extends Component {
 
   state = {
-    name: "",
-    location: "",
-    category: "",
-    rating: "",
-    cuisine: "",
     toList: false
   }
   
-  handleChange = event => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-
-    console.log(this.state[name])
-  }
-  
-  handleSubmit = event => {
+  handleSubmit = (event, data) => {
     event.preventDefault();
-    const { name, location, category, cuisine, rating } = this.state
+    const { name, location, category, cuisine, rating } = data
     const author = "marinacosta"
     
     saveRestaurant({ name, location, category, cuisine, rating, author })
 
     this.setState({
-      name: "",
-      location: "",
-      category: "",
-      rating: "",
-      cuisine: "",
       toList: true
     })
   }
@@ -56,8 +34,6 @@ class AddRestaurant extends Component {
       <Section heading="Restaurant Info">
         <RestaurantForm
           handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          restaurant={null}
         />
       </Section>
     )
