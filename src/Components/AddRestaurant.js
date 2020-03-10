@@ -10,12 +10,10 @@ class AddRestaurant extends Component {
     toList: false
   }
   
-  handleSubmit = (event, data) => {
+  handleSubmit = (event, newRestaurant) => {
     event.preventDefault();
-    const { name, location, category, cuisine, rating } = data
-    const author = "marinacosta"
     
-    saveRestaurant({ name, location, category, cuisine, rating, author })
+    saveRestaurant(newRestaurant)
 
     this.setState({
       toList: true
