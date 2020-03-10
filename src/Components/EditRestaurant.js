@@ -19,13 +19,11 @@ class EditRestaurant extends Component {
       })
   }
 
-  handleSubmit = (event, data) => {
+  handleSubmit = (event, newRestaurant) => {
     event.preventDefault();
-    const { name, location, category, cuisine, rating } = data
-    const author = "marinacosta"
+    
     const { rid } = this.props.match.params
-
-    editRestaurant({ rid, name, location, category, cuisine, rating, author })
+    editRestaurant(newRestaurant, rid)
 
     this.setState({
       toList: true
@@ -37,9 +35,6 @@ class EditRestaurant extends Component {
     const { restaurants } = this.state
 
     const restaurant = restaurants !== null ? restaurants.filter(restaurant => restaurant.rid === rid) : null
-
-    console.log("---RESTAURANT---")
-    console.log(restaurant)
 
     const { toList } = this.state
 
@@ -58,12 +53,11 @@ class EditRestaurant extends Component {
               location={restaurant[0].location}
               category={restaurant[0].category}
               cuisine={restaurant[0].cuisine}
-              rating="4"
+              rating={restaurant[0].rating}
             />
           </>
           )
         }
-
       </Section>
     )
   }
