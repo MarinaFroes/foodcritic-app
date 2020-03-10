@@ -57,11 +57,8 @@ class RestaurantList extends React.Component {
                 key={index}
                 rid={restaurant.rid}
                 name={restaurant.name}
-                author={restaurant.author}
                 location={restaurant.location}
                 ratings={restaurant.ratings}
-                category={restaurant.category}
-                raters={restaurant.raters}
               />
             ))
           }
