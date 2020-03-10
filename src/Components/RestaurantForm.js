@@ -163,6 +163,6 @@ RestaurantForm.propTypes = {
   location: PropTypes.string,
   category: PropTypes.string,
   cuisine: PropTypes.string,
-  rating: PropTypes.number,
+  rating: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,
 }
