@@ -17,5 +17,5 @@ export default function EditIcon({ rid }) {
 }
 
 EditIcon.propTypes = {
-  rid: PropTypes.number.isRequired
+  rid: PropTypes.string.isRequired
 }
