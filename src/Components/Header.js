@@ -1,7 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import logo from '../assets/logo.svg';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import logo from '../assets/logo.svg'
+import PropTypes from 'prop-types'
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -34,3 +35,6 @@ export default function Header( { title }) {
   )
 };
 
+Header.propTypes = {
+  title: PropTypes.string.isRequired
+}
