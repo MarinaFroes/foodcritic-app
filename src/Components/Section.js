@@ -1,5 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const SectionContainer = styled.section`
   margin: 0;
@@ -21,4 +22,9 @@ export default function Section({ heading, children }) {
       {children}
   </SectionContainer>
   )
+}
+
+Section.propTypes = {
+  heading: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired
 }
