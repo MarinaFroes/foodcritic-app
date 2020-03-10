@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
+import PropTypes from 'prop-types'
 
 const Form = styled.form`
   display: flex;
@@ -157,3 +157,12 @@ class RestaurantForm extends Component {
 }
 
 export default RestaurantForm
+
+RestaurantForm.propTypes = {
+  name: PropTypes.string,
+  location: PropTypes.string,
+  category: PropTypes.string,
+  cuisine: PropTypes.string,
+  rating: PropTypes.number,
+  handleSubmit: PropTypes.func.isRequired,
+}
