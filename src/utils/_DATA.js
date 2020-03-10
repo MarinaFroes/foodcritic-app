@@ -72,12 +72,14 @@ export function _saveRestaurant (restaurant) {
   })
 }
 
-export function _editRestaurant(newRestaurant, rid ) {
+export function _editRestaurant({ newRestaurant, rid }) {
   return new Promise((res, rej) => {
     setTimeout(() => {
       const formattedRestaurant = formatRestaurant(newRestaurant, rid)
       
-      const existingRestaurants = restaurants.filter(restaurant => restaurant.rid !== rid)
+      const existingRestaurants = restaurants.filter(restaurant => {
+        return restaurant.rid !== rid
+      })
 
       restaurants = [
         ...existingRestaurants,
