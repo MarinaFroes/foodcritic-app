@@ -70,8 +70,6 @@ class RestaurantForm extends Component {
   
   render() {
     const { handleSubmit } = this.props
-    console.log("---RESTAURANT FORM PROPS---")
-    console.log(this.props)
 
     const { name, location, category, cuisine, rating } = this.state
     
