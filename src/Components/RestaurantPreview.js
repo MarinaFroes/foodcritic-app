@@ -23,16 +23,12 @@ const Name = styled.h3`
   color: #000;
 `;
 
-function RestaurantPreview({ name, location, ratings, rid }) {
-    const ratingsArray = Object.values(ratings)
-    const totalOfRatings = Object.keys(ratings).length
-    const sumOfRatings = ratingsArray.reduce((accumulator, currentValue) => accumulator + currentValue)
-    const averageRating = sumOfRatings / totalOfRatings
+function RestaurantPreview({ name, location, rating, rid }) {
 
     return (
       <RestaurantInfo to={`/restaurant/${rid}`}>
         <Name>{name} - {location}</Name>
-        <StarRating rating={averageRating} />
+        <StarRating rating={rating} />
       </RestaurantInfo>
     )
 }
@@ -42,6 +38,6 @@ export default RestaurantPreview
 RestaurantPreview.propTypes = {
   name: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  ratings: PropTypes.objectOf(PropTypes.number).isRequired,
+  rating: PropTypes.number.isRequired,
   rid: PropTypes.string.isRequired,
 }
