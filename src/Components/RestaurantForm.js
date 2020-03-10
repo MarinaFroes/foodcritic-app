@@ -75,7 +75,7 @@ class RestaurantForm extends Component {
 
     const { name, location, category, cuisine, rating } = this.state
     
-    const newData = {
+    const newRestaurant = {
       name,
       location, 
       category,
@@ -84,7 +84,7 @@ class RestaurantForm extends Component {
     }
 
     return (
-      <Form onSubmit={(event) => handleSubmit(event, newData)}>
+      <Form onSubmit={(event) => handleSubmit(event, newRestaurant)}>
 
         <Label htmlFor="name">Name</Label>
         <InputText
@@ -142,11 +142,11 @@ class RestaurantForm extends Component {
           required
         >
           <option value="">--choose a rating--</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
         </Select>
 
         <Submit type="submit" value="Save" />
@@ -163,6 +163,6 @@ RestaurantForm.propTypes = {
   location: PropTypes.string,
   category: PropTypes.string,
   cuisine: PropTypes.string,
-  rating: PropTypes.string,
+  rating: PropTypes.number,
   handleSubmit: PropTypes.func.isRequired,
 }
