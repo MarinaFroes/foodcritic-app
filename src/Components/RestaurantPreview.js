@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import StarRating from './StarRating'
+import PropTypes from 'prop-types'
 
 const RestaurantInfo = styled(Link)`
   display: flex;
@@ -22,10 +23,6 @@ const Name = styled.h3`
   color: #000;
 `;
 
-// const Info = styled.p`
-//   font-size: 0.8rem;
-// `;
-
 function RestaurantPreview({ name, location, ratings, rid }) {
     const ratingsArray = Object.values(ratings)
     const totalOfRatings = Object.keys(ratings).length
@@ -35,10 +32,16 @@ function RestaurantPreview({ name, location, ratings, rid }) {
     return (
       <RestaurantInfo to={`/restaurant/${rid}`}>
         <Name>{name} - {location}</Name>
-        {/* <Info>{category}</Info> */}
         <StarRating rating={averageRating} />
       </RestaurantInfo>
     )
 }
 
 export default RestaurantPreview
+
+RestaurantPreview.propTypes = {
+  name: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  ratings: PropTypes.objectOf(PropTypes.number).isRequired,
+  rid: PropTypes.string.isRequired,
+}
