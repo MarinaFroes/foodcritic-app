@@ -1,6 +1,7 @@
-import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import styled from 'styled-components';
+import React from 'react'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const AuthorInfo = styled.div`
   margin: 0.5rem;
@@ -40,4 +41,12 @@ export default function Author({ name, github, linkedin, gmail, stack }) {
       </AuthorInfo>
     </React.Fragment>
   )
+}
+
+Author.propTypes = {
+  name: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
+  gmail: PropTypes.string.isRequired,
+  stack: PropTypes.string.isRequired,
 }
