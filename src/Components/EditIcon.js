@@ -1,10 +1,10 @@
-import React from 'react';
-import Fab from '@material-ui/core/Fab';
-import EditRoundedIcon from '@material-ui/icons/EditRounded';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import Fab from '@material-ui/core/Fab'
+import EditRoundedIcon from '@material-ui/icons/EditRounded'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-
-export default function EditIcon({ rid}) {
+export default function EditIcon({ rid }) {
   return (
     <>
       <Link to={`/edit_restaurant/${rid}`} style={{ textDecoration: 'none' }}>
@@ -14,4 +14,8 @@ export default function EditIcon({ rid}) {
       </Link>
     </>
   )
+}
+
+EditIcon.propTypes = {
+  rid: PropTypes.number.isRequired
 }
