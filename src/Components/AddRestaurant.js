@@ -6,7 +6,6 @@ import RestaurantForm from './RestaurantForm'
 import { saveRestaurant } from '../utils/api'
 
 class AddRestaurant extends Component {
-
   state = {
     toList: false
   }
