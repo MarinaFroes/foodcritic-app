@@ -4,7 +4,7 @@
 
 ## Overview
 
-<p align="center"><img src="./src/assets/screens.png" alt="screenshot"/></p>
+<p align="center"><img src="./src/assets/screensV2.png" alt="screenshot"/></p>
 
 
 ## Introduction
