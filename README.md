@@ -10,6 +10,8 @@
 ## Introduction
 [ IN PROGRESS ]
 - This project aims to create a restaurant review app.
+- So far, the user can check the existing list of restaurants, edit it and add new restaurants manually, but there's no backend yet and the changes are lost after refreshing the page.
+- Next features including add pictures and reviews of dishes and a backend.
 
 ## Stack
 
