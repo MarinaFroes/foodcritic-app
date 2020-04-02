@@ -1,5 +1,11 @@
-# FoodCritic App
-![Screen](./src/Components/images/screens.png)
+<p align="center"><img src="./src/assets/logo.svg" alt="logo" width="80"/></p>
+
+<h1 align="center">Food Critic App </h1>
+
+## Overview
+
+<p align="center"><img src="./src/assets/screens.png" alt="screenshot"/></p>
+
 
 ## Introduction
 [ IN PROGRESS ]
